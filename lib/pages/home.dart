@@ -12,6 +12,9 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
+
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -29,8 +32,8 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                         Container(
                           width: 50,
                           child: GestureDetector(
-                            onTap: (){
-
+                            onTap: () {
+                              Navigator.pushNamed(context, MyRoutes.settingsRoute);
                             },
                               child: Icon(settings_outlined,color: Colors.white,)),
                         ),

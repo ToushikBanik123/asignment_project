@@ -24,7 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
             backgroundColor: color1,
             leading: Center(
               child: GestureDetector(
-                onTap: (){},
+                onTap: (){Navigator.pop(context);},
                 child: const Text(
                     "Close",style: TextStyle(
                   fontSize: 18,
