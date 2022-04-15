@@ -11,8 +11,6 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _myButton = true;
-  final galleryUrl = 'https://krishworks.com/gallery/';
-  final contactUrl = 'https://krishworks.com/contact';
   var url;
   late WebViewController controller;
 
@@ -33,12 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
-            title: GestureDetector(
-              onTap: (){
-
-              },
-                child: Text("Setting"),
-            ),
+            title: const Text("Setting"),
           ),
           body: Row(
             children: [
@@ -86,13 +79,12 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),),),
                       ),
                     ),
-
                   ],
                 ),
               ),
                Expanded(
                 child: WebView(
-                  initialUrl: contactUrl,
+                  initialUrl: galleryUrl,
                   onWebViewCreated: (controller){
                     this.controller = controller;
                   },

@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:toushik_banik_flutter_intern/utils/const.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:toushik_banik_flutter_intern/utils/routes.dart';
+import 'package:toushik_banik_flutter_intern/widget/ShowCastomDialog.dart';
 
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({Key? key}) : super(key: key);
-
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
 }
 
 class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
 
-
+  moveToSettings(BuildContext) {
+    print(DateTime.now());
+    print(day * month * year);
+    showCustomDialog(context);
+  }
 
   @override
   Widget build(BuildContext context) {
-
     TabController tabController = TabController(length: 3, vsync: this);
     return MaterialApp(
       home: SafeArea(
@@ -32,10 +34,9 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                         Container(
                           width: 50,
                           child: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, MyRoutes.settingsRoute);
-                            },
-                              child: Icon(settings_outlined,color: Colors.white,)),
+                              onTap: () => moveToSettings(BuildContext),
+                              child: const Icon(
+                                settings_outlined, color: Colors.white,)),
                         ),
                         Expanded(
                           flex: 1,
@@ -53,16 +54,25 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                                       ),
                                       child: TabBar(
                                         indicator: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(18),
+                                          borderRadius: BorderRadius.circular(
+                                              18),
                                           color: color3,
-                                          border: Border.all(width: 10,color: color4),
+                                          border: Border.all(
+                                              width: 10, color: color4),
                                         ),
                                         controller: tabController,
-                                        labelPadding: EdgeInsets.symmetric(horizontal: 30),
+                                        labelPadding: const EdgeInsets.symmetric(
+                                            horizontal: 30),
                                         tabs: const [
-                                          Tab(child: Text("HOME",style: TextStyle(color: Colors.black),)),
-                                          Tab(child: Text("ABOUT US",style: TextStyle(color: Colors.black),)),
-                                          Tab(child: Text("UPDATES",style: TextStyle(color: Colors.black),)),
+                                          Tab(child: Text("HOME",
+                                            style: TextStyle(
+                                                color: Colors.black),)),
+                                          Tab(child: Text("ABOUT US",
+                                            style: TextStyle(
+                                                color: Colors.black),)),
+                                          Tab(child: Text("UPDATES",
+                                            style: TextStyle(
+                                                color: Colors.black),)),
                                         ],
                                       ),
                                     ),
@@ -81,15 +91,15 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                     children: const [
                       WebView(
                         javascriptMode: JavascriptMode.unrestricted,
-                        initialUrl: 'https://krishworks.com/',
+                        initialUrl: homeUrl,
                       ),
                       WebView(
                         javascriptMode: JavascriptMode.unrestricted,
-                        initialUrl: 'https://krishworks.com/about/',
+                        initialUrl: aboutUsUrl,
                       ),
                       WebView(
                         javascriptMode: JavascriptMode.unrestricted,
-                        initialUrl: 'https://krishworks.com/updates/',
+                        initialUrl: updatesUrl,
                       ),
                       // buildPage('Home Page'),
                       // buildPage('Feed Page'),
@@ -104,3 +114,7 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
     );
   }
 }
+
+
+
+
