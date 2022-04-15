@@ -12,11 +12,6 @@ class HomeLayout extends StatefulWidget {
 
 class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
 
-  moveToSettings(BuildContext) {
-    print(DateTime.now());
-    print(day * month * year);
-    showCustomDialog(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +29,7 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                         Container(
                           width: 50,
                           child: GestureDetector(
-                              onTap: () => moveToSettings(BuildContext),
+                              onTap: () => showCustomDialog(context),
                               child: const Icon(
                                 settings_outlined, color: Colors.white,)),
                         ),
@@ -58,7 +53,8 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                                               18),
                                           color: color3,
                                           border: Border.all(
-                                              width: 10, color: color4),
+                                              width: 10,
+                                          color: color4),
                                         ),
                                         controller: tabController,
                                         labelPadding: const EdgeInsets.symmetric(

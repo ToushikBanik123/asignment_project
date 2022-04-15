@@ -30,7 +30,7 @@ showCustomDialog(BuildContext context) => showDialog(
 
             Pinput(
               length: 6,
-              onCompleted: (pin) =>(pin == ((day*month*year).toString()))? password = true : password = false,
+              onCompleted: (pin) =>(int.parse(pin) == (day*month*year))? password = true : password = false,
               autofocus: true,
               onSubmitted: (pin) async {
                 (password)?
