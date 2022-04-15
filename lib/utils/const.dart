@@ -14,7 +14,7 @@ const IconData settings_outlined = IconData(0xf36e, fontFamily: 'MaterialIcons')
 //uel
 
 const homeUrl ='https://krishworks.com/';
-const aboutUsUrl = 'https://krishworks.com/';
+const aboutUsUrl = 'https://krishworks.com/about/';
 const updatesUrl = 'https://krishworks.com/updates/';
 const galleryUrl = 'https://krishworks.com/gallery/';
 final contactUrl = 'https://krishworks.com/contact';
