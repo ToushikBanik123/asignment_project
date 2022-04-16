@@ -26,17 +26,10 @@ showCustomDialog(BuildContext context) => showDialog(
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               const SizedBox(height: 12),
-
-
-            Pinput(
+              Pinput(
               length: 6,
-              onCompleted: (pin) =>(int.parse(pin) == (day*month*year))? password = true : password = false,
-              autofocus: true,
-              onSubmitted: (pin) async {
-                (password)?
-                await Navigator.pushNamed(context, MyRoutes.settingsRoute)
-                    : (){}
-                ;
+              onCompleted: (pin) async {
+                (int.parse(pin) == (day*month*year))?await Navigator.pushNamed(context, MyRoutes.settingsRoute): (){};
                 Navigator.of(context).pop();
               },
             ),
